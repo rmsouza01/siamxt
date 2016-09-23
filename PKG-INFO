@@ -1,0 +1,75 @@
+Metadata-Version: 1.1
+Name: siamxt
+Version: 0.1
+Summary: Max-tree Toolbox for Teaching Image Processing
+Home-page: https://github.com/rmsouza01/siamxt
+Author: Roberto M Souza and collaborators
+Author-email: roberto.medeiros.souza@gmail.com
+
+BSD 2-Clause License
+Copyright (c) 2016, Roberto Souza and collaborators
+All rights reserved.
+
+Description: 
+
+        ==================================
+        siamxt: Simple Max-tree Toolbox 
+        ==================================
+        
+        Description
+        -----------
+        
+        This is an alpha version of the Max-tree toolbox. The toolbox was implemented in Python
+        and the critical functions were implemented in C++ and wrapped in Python using SWIG.
+        We have a different max-tree structure that is more suitable for matricial processing,
+        and allows a fast development of new methods with a reasonable processing time. Our main
+        goal in providing this toolbox is to spread the max-tree data structure further among the
+        scientific community, investigate it further, and develop new tools that may be applied to
+        solve real signal, image processing, and pattern recognition problems. This toolbox works
+        for both 2D and 3D images of type uint8.
+        
+        Authors
+        ---------
+        
+        Roberto Souza - roberto.medeiros.souza@gmail.com
+        Roberto Lotufo - robertoalotufo@gmail.com 
+        Rubens Machado - rubens.campos.machado@gmail.com 
+        
+        Requirements
+        ------------
+        
+        This toolbox requires SWIG, OpenMP, NumPy. 
+        
+        
+        Documentation
+        -------------
+        
+        The documentation of this toolbox is the same of the iamxt (disconsider drawing functions) and is available at:
+        http://adessowiki.fee.unicamp.br/adesso/wiki/iamxt/view/
+        
+        Install
+        -------
+        Download the zip file, unzip it and type on terminal:
+        sudo python setup.py install
+        
+        
+        Observations
+        ---------------
+        
+        This is the first time that I try to wrap some code for distribution. If you have experience un making distributions and you have tips on how
+        to make them more portable, I'll gladly listen to them!
+        
+        
+        Contact
+        ---------
+        
+        If you have any doubts, questions or suggestions to improve this toolbox, please contact me at:
+        roberto.medeiros.souza@gmail.com
+        
+Keywords: image processing,mathematical morphology,max-tree
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python and C++ glued with SWIG
+Classifier: Topic :: Scientific/Engineering :: Mathematical Morphology
+Classifier: License :: BSD 2-clause
