@@ -1,5 +1,5 @@
 ==================================
-siamxt: Max-tree Toolbox 
+siamxt: Simple Max-tree Toolbox 
 ==================================
 
 BSD 2-Clause License
