@@ -1,5 +1,5 @@
 *~
-*pyc
+*.pyc
 build
 max_tree_c_01.py
 *_wrap.cpp
