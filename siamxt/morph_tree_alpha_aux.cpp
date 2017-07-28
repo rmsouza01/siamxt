@@ -6,11 +6,6 @@
 #include <iostream>
 #include <vector>
 
-#ifdef _OPENMP
-   #include <omp.h>
-#else
-   #define omp_get_thread_num() 0
-#endif
 
 using namespace std;
 
@@ -162,7 +157,6 @@ void prune_aux_c(int h1, int *lut, int h2, int *to_prune, int h_par, int *par,
 void get_image_aux_2d_c(int h1, int *h,int h2,int w2,int *node_index,int h3,int w3,unsigned short *output_img) {
     
     int N =  h2*w2;
-#pragma omp parallel for shared(output_img,h,N,node_index)
     for(int i = 0; i < N;i++ ){
         output_img[i] = h[node_index[i]];
     }
@@ -173,7 +167,6 @@ void get_image_aux_2d_c(int h1, int *h,int h2,int w2,int *node_index,int h3,int 
 void get_image_aux_3d_c(int h1, int *h,int h2,int w2, int z2,int *node_index,int h3,int w3,int z3, unsigned short *output_img) {
     
     int N =  h2*w2*z2;
-#pragma omp parallel for shared(output_img,h,N,node_index)
     for(int i = 0; i < N;i++ ){
         output_img[i] = h[node_index[i]];
     }
@@ -251,7 +244,6 @@ void rec_connected_component_3d_c(int node, int seed, int h_ni,int w_ni,int z_ni
 void lut_node_index_2d_c(int h, int *lut, int h1, int w1, int *node_index){
     int N = h1*w1;
     
-#pragma omp parallel for shared(N,lut,node_index)
     for(int i = 0; i < N ;i++ ){
         node_index[i] = lut[node_index[i]];
         
@@ -263,7 +255,6 @@ void lut_node_index_2d_c(int h, int *lut, int h1, int w1, int *node_index){
 void lut_node_index_3d_c(int h, int *lut, int h1, int w1,int z1, int *node_index){
     int N = h1*w1*z1;
     
-#pragma omp parallel for shared(N,lut,node_index)
     for(int i = 0; i < N ;i++ ){
         node_index[i] = lut[node_index[i]];
         
@@ -274,7 +265,6 @@ void lut_node_index_3d_c(int h, int *lut, int h1, int w1,int z1, int *node_index
 //Removes lines from node array
 void remove_node_array_lines_c(int h1, int *nodes_kept,int h2,int w2,int *new_node_array,
                                int h_na, int w_na, int *node_array){
-#pragma omp parallel for
     for(int i = 0; i< h1;i++){
         int index1,index2;
         index1 = i;
