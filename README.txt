@@ -28,13 +28,13 @@ This toolbox requires OpenMP, SWIG, NumPy.
 Documentation
 -------------
 
-The documentation of this toolbox is the same of the iamxt toolbox and is available at:
-http://adessowiki.fee.unicamp.br/adesso/wiki/iamxt/view/
+The documentation of this toolbox is the same of the iamxt toolbox and is available at: http://adessowiki.fee.unicamp.br/adesso/wiki/iamxt/view/
 
 Install
 -------
 Download the zip file, unzip it, go to the toolbox folder and type on terminal:
 sudo python setup.py install
+
 
 
 Observations
