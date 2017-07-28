@@ -23,7 +23,7 @@ Roberto Lotufo - robertoalotufo@gmail.com
 Requirements
 ------------
 
-This toolbox requires OpenMP, SWIG, NumPy.
+This toolbox requires NumPy. In fact I use SWIG to communicate C and Python, but I generate the SWIG wrappers myself, so you don’t need to install them your computers.
 
 Documentation
 -------------

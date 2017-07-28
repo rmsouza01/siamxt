@@ -30,58 +30,66 @@ except AttributeError:
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
+src_dir = 'siamxt'
+src_dir_c = 'C++'
+src_dir_swig = 'SWIG'
+
+
+
 # extension modules
 _max_tree_c_01 = Extension(
             '_max_tree_c_01',
-            ['siamxt/max_tree_c_01.cpp', 'siamxt/max_tree_c_01.i'], 
+            [os.path.join(src_dir,src_dir_c,'max_tree_c_01.cpp'), os.path.join(src_dir,\
+            src_dir_c,'max_tree_c_01_wrap.cpp')],
             define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
-            swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
+            #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
 _morph_tree_alpha_aux_c = Extension(
             '_morph_tree_alpha_aux',
-            ['siamxt/morph_tree_alpha_aux.cpp', 'siamxt/morph_tree_alpha_aux.i'], 
+            [os.path.join(src_dir,src_dir_c,'morph_tree_alpha_aux.cpp'),os.path.join(src_dir,src_dir_c,'morph_tree_alpha_aux_wrap.cpp') ],
             define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
-            swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
+            #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
 
 _max_tree_alpha_aux_c = Extension(
             '_max_tree_alpha_aux',
-            ['siamxt/max_tree_alpha_aux.cpp', 'siamxt/max_tree_alpha_aux.i'], 
+            [os.path.join(src_dir,src_dir_c,'max_tree_alpha_aux.cpp'), os.path.join(src_dir,\
+            src_dir_c,'max_tree_alpha_aux_wrap.cpp')],
             define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
-            swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
+            #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
 setup(  name        = "siamxt",
-        version     = "0.1",
+    version     = "1.0.0",
 	ext_modules = [_max_tree_c_01,_morph_tree_alpha_aux_c,_max_tree_alpha_aux_c],
 	packages=['siamxt'],
 	package_data={'siamxt': ['things/grey_levels.png']},
-        #data_files=[('siamxt', ['images/cameraman.png', 'images/mri.jpg','images/lena.png','images/lp_image.png','images/itajaiacu.png'])], 
- 	author="Roberto M Souza and collaborators",
-        author_email="roberto.medeiros.souza@gmail.com",
-        description="Max-tree Toolbox for Teaching Image Processing",
-        license="BSD 2-clause License",
-        keywords=["image processing", "mathematical morphology","max-tree"],
-        url="https://github.com/rmsouza01/siamxt/tree/16bit/siamxt",
-        long_description=read('README.txt'),
-        classifiers=[
-        "Development Status :: 1 - Alpha",
-        "Intended Audience :: Science/Research",
-        "Programming Language :: Python and C++ glued with SWIG",
-        "Topic :: Scientific/Engineering :: Mathematical Morphology",
-        "License :: BSD 2-clause",
-        ],
-        )
+    author="Roberto M Souza and collaborators",
+    author_email="roberto.medeiros.souza@gmail.com",
+    description="Max-tree Toolbox for Teaching Image Processing",
+    license="BSD 2-clause License",
+    keywords=["image processing", "mathematical morphology","max-tree"],
+    url="https://github.com/rmsouza01/siamxt/tree/16bit/siamxt",
+    long_description=read('README.txt'),
+    classifiers=[
+    "Development Status :: 1 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python and C++ glued with SWIG",
+    "Topic :: Scientific/Engineering :: Mathematical Morphology",
+    "License :: BSD 2-clause",
+    ],
+    )
 
 
