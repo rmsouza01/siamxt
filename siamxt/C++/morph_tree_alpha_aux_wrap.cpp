@@ -12,7 +12,8 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#define NPY_NO_DEPRECATED_API NPY_API_VERSION
+
+
 #define SWIGPYTHON
 #define SWIG_PYTHON_THREADS
 #define SWIG_PYTHON_DIRECTOR_NO_VTABLE
@@ -3049,7 +3050,10 @@ namespace swig {
 #  define NO_IMPORT_ARRAY
 #endif
 #include "stdio.h"
-#define NPY_NO_DEPRECATED_API NPY_1_6_API_VERSION
+
+#ifndef NPY_NO_DEPRECATED_API
+#  define NPY_NO_DEPRECATED_API NPY_1_6_API_VERSION
+#endif
 
 #include <numpy/arrayobject.h>
 

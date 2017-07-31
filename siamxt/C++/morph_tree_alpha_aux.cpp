@@ -3,7 +3,10 @@
 //All rights reserved. 
 
 
-#define NPY_NO_DEPRECATED_API NPY_API_VERSION
+#ifndef NPY_NO_DEPRECATED_API
+#  define NPY_NO_DEPRECATED_API NPY_1_6_API_VERSION
+#endif
+
 #include <iostream>
 #include <vector>
 

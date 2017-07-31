@@ -42,7 +42,7 @@ _max_tree_c_01 = Extension(
             '_max_tree_c_01',
             [os.path.join(src_dir,src_dir_c,'max_tree_c_01.cpp'), os.path.join(src_dir,\
             src_dir_c,'max_tree_c_01_wrap.cpp')],
-            define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
+                           define_macros=[('NDEBUG', None)],#,('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
@@ -52,7 +52,7 @@ _max_tree_c_01 = Extension(
 _morph_tree_alpha_aux_c = Extension(
             '_morph_tree_alpha_aux',
             [os.path.join(src_dir,src_dir_c,'morph_tree_alpha_aux.cpp'),os.path.join(src_dir,src_dir_c,'morph_tree_alpha_aux_wrap.cpp') ],
-            define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
+            define_macros=[('NDEBUG', None)],
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
@@ -64,7 +64,7 @@ _max_tree_alpha_aux_c = Extension(
             '_max_tree_alpha_aux',
             [os.path.join(src_dir,src_dir_c,'max_tree_alpha_aux.cpp'), os.path.join(src_dir,\
             src_dir_c,'max_tree_alpha_aux_wrap.cpp')],
-            define_macros=[('NDEBUG', None),('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')],
+            define_macros=[('NDEBUG', None)],
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],

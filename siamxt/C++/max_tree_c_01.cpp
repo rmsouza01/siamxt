@@ -2,12 +2,14 @@
 //Copyright (c) 2016, Roberto Souza and collaborators
 //All rights reserved. 
 
+#ifndef NPY_NO_DEPRECATED_API
+#  define NPY_NO_DEPRECATED_API NPY_1_6_API_VERSION
+#endif
 
-#define NPY_NO_DEPRECATED_API NPY_API_VERSION
+
 #include <iostream>
 #include <vector>
 
-//using namespace std;
 
 #define UNDEFINED -1
 
