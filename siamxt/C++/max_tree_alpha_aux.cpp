@@ -32,8 +32,8 @@ void compute_volume_aux_c(int h1, int *par, int h2, int *delta, int h3, int *are
    
    for(int i = (h1-1); i > 0; i--){
       volume[par[i]] += volume[i] + (delta[i] - 1)*area[i];
-      }
    }
+}
 
 
 // auxiliary method for computing extinction values of the nodes
@@ -74,25 +74,25 @@ void compute_extinction_values_aux_c(int h1, int *par, int h2, int *attrib, int 
 void compute_stability_measure_aux_c(int h_par, int *par, int h_level, int *level, int h_area,
                                      int *area, int h2, int *nlevels,int h3, int *nodes_list,
                                      int h4, double *stability_measure, int delta, int hmin) {
-      int att0,att1,node, ancestor_index, current_level;
-      for(int i = 0; i < h3; i++){
-         node = nodes_list[i];
-         current_level = level[node];
-         if (nlevels[node] > delta) ancestor_index = node;
-         else{
-            ancestor_index = par[node];
-            while (1){
-               if ((current_level - level[ancestor_index]+ nlevels[ancestor_index]) >delta)
-                  break;
-               else
-                  ancestor_index = par[ancestor_index];
-               }
-            }
-         att0 = area[ancestor_index];
-         att1 = area[node];
-         stability_measure[node] = 1.0*(att0- att1)/att0;
+   int att0,att1,node, ancestor_index, current_level;
+   for(int i = 0; i < h3; i++){
+      node = nodes_list[i];
+      current_level = level[node];
+      if (nlevels[node] > delta) ancestor_index = node;
+      else{
+         ancestor_index = par[node];
+         while (1){
+            if ((current_level - level[ancestor_index]+ nlevels[ancestor_index]) >delta)
+               break;
+            else
+               ancestor_index = par[ancestor_index];
+         }
       }
+      att0 = area[ancestor_index];
+      att1 = area[node];
+      stability_measure[node] = 1.0*(att0- att1)/att0;
    }
+}
 
 
 
@@ -117,7 +117,7 @@ void get_signature_aux_c(int h1, int *par, int h2, int *h, int h3, int *area,
          node = par[node];
       }
    }
-  else if (cte == 1){
+   else if (cte == 1){
       while (node != end){
          nlevels = h[node] - h[par[node]];
          for( int i = 0; i < nlevels; i++){
@@ -162,16 +162,16 @@ void mms_mser_aux_c(int h1, double *stability_measure,int h2, int *to_keep,int h
          if (next_stability < stability){
             node = next_node;
             stability = next_stability;
-            }
          }
+      }
       to_keep[j] = node; // marks node with highest stability to be kept
       j++;
-         }
-   }
+      }
+}
 
 
-void mms_t_aux_c(double t, int h1, int *nlevels, int h_level, int *level, int h2, int *to_keep, int h3, int *new_h,
-             int h4, int *sub_branches,int h5, int *sb_cum_hist){
+void mms_t_aux_c(double t, int h1, int *nlevels, int h_level, int *level, int h2, int *to_keep, int h3, int *
+                 new_h,int h4, int *sub_branches,int h5, int *sb_cum_hist){
    int j = 0;
    int ngreylevels = 0;
    int h_sb,node, start_node;
@@ -183,7 +183,7 @@ void mms_t_aux_c(double t, int h1, int *nlevels, int h_level, int *level, int h2
       for(int k = sb_cum_hist[i]; k < sb_cum_hist[i+1]; k++){
          node = sub_branches[k];
          ngreylevels += nlevels[node];
-         }
+      }
       ngreylevels--;
       //h_new = level[start_node] - nlevels[start_node] + 1 + t*(ngreylevels - 1);
       h_new = level[start_node] - nlevels[start_node] + rint(1 + t*ngreylevels);
@@ -198,64 +198,64 @@ void mms_t_aux_c(double t, int h1, int *nlevels, int h_level, int *level, int h2
          ww++;
          kk = sub_branches[ww];
          h_sb = level[kk];
-         }
+      }
       to_keep[j] = kk;
       j++;
       ngreylevels = 0;
+   }
+}
+
+
+void area_difference_aux_c(int AD, int h1, int *parent,int h2, int *area,int h3,int *to_keep){
+       
+   for(int i = h1-1; i > 0; i--){
+      if (to_keep[i]!=0)
+         to_keep[parent[i]] = 1;
+      else {
+         if ((area[parent[i]] - area[i]) > AD){
+            to_keep[parent[i]] = 1;
+            to_keep[i] = 1;
+         }
       }
    }
+}
 
 
-    void area_difference_aux_c(int AD, int h1, int *parent,int h2, int *area,int h3,int *to_keep){
+
+
+void prog_area_difference_aux_c(int AD, int h1, int *parent,int h2, int *area,int h3,
+                                int *to_keep,int h4,int *visited,int h5,int *leaves){
        
-       for(int i = h1-1; i > 0; i--){
-          if (to_keep[i]!=0)
-             to_keep[parent[i]] = 1;
-          else {
-             if ((area[parent[i]] - area[i]) > AD){
-                to_keep[parent[i]] = 1;
-                to_keep[i] = 1;  
-                } 
-             }   
-          }
-       }
-
-
-
-
-    void prog_area_difference_aux_c(int AD, int h1, int *parent,int h2, int *area,int h3,
-                                    int *to_keep,int h4,int *visited,int h5,int *leaves){
+   int last_anc,leaf, current_node,size,anc;
+   vector<int> ancestors;
        
-       int last_anc,leaf, current_node,size,anc;
-       vector<int> ancestors;
-       
-       for(int i = 0; i < h5; i++){
-          leaf = leaves[i];
-          current_node = leaf;
-          //get ancestors
-          ancestors.push_back(current_node);
-          while(current_node!= 0){ //while not the root
-             current_node = parent[current_node];
-             ancestors.push_back(current_node);
-             }
-          last_anc = 0;
-          size = ancestors.size();
-          for(int j = size-1; j>=0; j--){
-             anc = ancestors[j];
-             if (visited[anc]!=0){
-                if (to_keep[anc]!=0)
-                   {last_anc = anc;}
-                }
-                else {
-                   visited[anc] = 1;
-                   if ((area[last_anc] - area[anc]) > AD){
-                      to_keep[anc] = 1;
-                      last_anc = anc;  
-                      }
-                   }
-             } 
-          ancestors.clear();
-          }   
-       }
+   for(int i = 0; i < h5; i++){
+      leaf = leaves[i];
+      current_node = leaf;
+      //get ancestors
+      ancestors.push_back(current_node);
+      while(current_node!= 0){ //while not the root
+         current_node = parent[current_node];
+         ancestors.push_back(current_node);
+      }
+      last_anc = 0;
+      size = ancestors.size();
+      for(int j = size-1; j>=0; j--){
+         anc = ancestors[j];
+         if (visited[anc]!=0){
+            if (to_keep[anc]!=0)
+               {last_anc = anc;}
+         }
+         else {
+            visited[anc] = 1;
+            if ((area[last_anc] - area[anc]) > AD){
+               to_keep[anc] = 1;
+               last_anc = anc;
+            }
+         }
+      }
+      ancestors.clear();
+   }
+}
        
 

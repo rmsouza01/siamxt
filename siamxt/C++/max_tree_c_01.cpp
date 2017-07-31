@@ -15,9 +15,9 @@ using namespace std;
 
 // Implementation of the countung sort algorithm
 // It sorts an array of inetgers (low quantized) in linear time
-void counting_sort_c(int MAXVALUE,int w1, unsigned short *flat_img,int **sorted_img, int *ww)
-{
-    int RANGE = MAXVALUE + 1;	
+void counting_sort_c(int MAXVALUE,int w1, unsigned short *flat_img,int **sorted_img, int *ww){
+    
+    int RANGE = MAXVALUE + 1;
     int count[RANGE];
     int *sorted_img2 = new int[w1];
     *ww = w1;
@@ -33,9 +33,6 @@ void counting_sort_c(int MAXVALUE,int w1, unsigned short *flat_img,int **sorted_
 // algorithm with level compression presented in the paper: E. Carlinet, T. Geraud, 
 //"A Comparative Review of Component Tree Computation Algorithms," Image 
 //Processing, IEEE Transactions on , vol.23, no.9, pp.3885,3895, Sept. 2014. 
-
-
-
 int find_root(int *par, int p){
 	
    if (par[p] != p)
