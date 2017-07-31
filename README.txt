@@ -10,7 +10,19 @@ All rights reserved.
 Description
 -----------
 
-This is an alpha version of the simple max-tree toolbox (siamxt). The major difference to the iamxt toolbox is that it doesn't depend on OpenCV and doesn't come with the drawing methods. The toolbox was implemented in Python and the critical functions were implemented in C++ with the parallel loops optimized using OpenMP and wrapped in Python using SWIG. We have a different max-tree structure that is more suitable for array processing, and allows a fast development of new methods with a reasonable processing time. Our main goal in providing this toolbox is to spread the max-tree data structure further among the scientific community, investigate it further, and develop new tools that may be applied to solve real signal, image processing, and pattern recognition problems. This toolbox works for both 2D and 3D images of type uint8 and uint16.
+This is an alpha version of the simple max-tree toolbox (siamxt). The major difference to the iamxt toolbox is that it doesn't depend on OpenCV, SWIG, OpenMP and it doesn't come with the drawing methods. The toolbox was implemented in Python and the critical functions were implemented in C++ and wrapped in Python using SWIG. I run the SWIG files on my machine and I provide its output directly to you, so you don’t have to install SWIG on your machine. We have a different max-tree structure that is more suitable for array processing, and allows a fast development of new methods with a reasonable processing time. Our main goal in providing this toolbox is to spread the max-tree data structure further among the scientific community, investigate it further, and develop new tools that may be applied to solve real signal, image processing, and pattern recognition problems. This toolbox works for both 2D and 3D images of type uint8 and uint16. If you use this toolbox on your work, please cite the following article:
+
+- Souza, Roberto, et al. "iamxt: Max-tree toolbox for image processing and analysis." SoftwareX 6 (2017): 81-84.
+
+@article{souza2017iamxt,
+  title={iamxt: Max-tree toolbox for image processing and analysis},
+  author={Souza, Roberto and Rittner, Let{\'\i}cia and Machado, Rubens and Lotufo, Roberto},
+  journal={SoftwareX},
+  volume={6},
+  pages={81--84},
+  year={2017},
+  publisher={Elsevier}
+}
 
 Authors
 ---------
@@ -23,12 +35,14 @@ Roberto Lotufo - robertoalotufo@gmail.com
 Requirements
 ------------
 
-This toolbox requires NumPy. In fact I use SWIG to communicate C and Python, but I generate the SWIG wrappers myself, so you don’t need to install them your computers.
+This toolbox works with Python 2.x and requires NumPy. I use SWIG to communicate C and Python, but I generate the SWIG wrappers myself, so you don’t need to install SWIG on your computer.
 
 Documentation
 -------------
 
-The documentation of this toolbox is the same of the iamxt toolbox and is available at: http://adessowiki.fee.unicamp.br/adesso/wiki/iamxt/view/
+The documentation of this toolbox is the same of the iamxt (previous distribution of this toolbox) and is available at: http://adessowiki.fee.unicamp.br/adesso/wiki/iamxt/view/
+
+The documentation page won’t load if you have Ad-blockers. Please, disable them!
 
 Install
 -------
@@ -36,15 +50,18 @@ Download the zip file, unzip it, go to the toolbox folder and type on terminal:
 sudo python setup.py install
 
 
+Note for Windows users
+——————————————————————
+I didn’t test this toolbox on windows platform. If you are a Windows user, a friend has developed a docker image of the image. You can download it from the following repo: https://hub.docker.com/r/marianapbento/siamxt-1.0/
 
-Observations
----------------
+You can install Docker and download the image to use siamxt on your windows machine!
 
-This is the first time that I try to wrap some code for distribution. If you have experience in making distributions and you have tips on how to make them more portable, I'll gladly listen to them!
 
+Collaborators
+———————————————
+If you are interested in adding features or contributing to the siamxt toolbox, please contact me at roberto.medeiros.souza@gmail.com. I am accepting all the help I can get! Currently, the toolbox has reasonable number of users, mostly in Brazil and Europe, but very few developers :(
 
 Contact
 ---------
 
-If you have any doubts, questions or suggestions to improve this toolbox, please contact me at:
-roberto.medeiros.souza@gmail.com
+If you have any doubts, questions or suggestions to improve this toolbox, please contact me at: roberto.medeiros.souza@gmail.com
