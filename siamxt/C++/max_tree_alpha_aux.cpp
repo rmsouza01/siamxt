@@ -7,7 +7,7 @@
 #include <vector>
 #include <math.h>
 
-using namespace std;
+//using namespace std;
 
 // computes maximum between to integers
 inline int mymaximum(int val1, int val2){
@@ -227,7 +227,7 @@ void prog_area_difference_aux_c(int AD, int h1, int *parent,int h2, int *area,in
                                 int *to_keep,int h4,int *visited,int h5,int *leaves){
        
    int last_anc,leaf, current_node,size,anc;
-   vector<int> ancestors;
+   std::vector<int> ancestors;
        
    for(int i = 0; i < h5; i++){
       leaf = leaves[i];

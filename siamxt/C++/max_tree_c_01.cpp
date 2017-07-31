@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
+//using namespace std;
 
 #define UNDEFINED -1
 
@@ -174,7 +174,7 @@ void computeNodeArray2d_c(int h_par, int *par, int h_img, unsigned short *flat_i
    unsigned short level;
 
    int *area = new int[h_S];
-   vector<int> sorted_lvroots;
+   std::vector<int> sorted_lvroots;
 
    for(int i = 0; i < h_S; i++) area[i] = 1;
    for(int i = 0; i < h_S; i++){
@@ -266,7 +266,7 @@ void computeNodeArray3d_c(int h_par, int *par, int h_img, unsigned short *flat_i
    int ncols = 14;
 
    unsigned short level;
-   vector<int> sorted_lvroots;
+   std::vector<int> sorted_lvroots;
 
 
    for(int i = 0; i < n; i++) area[i] = 1;

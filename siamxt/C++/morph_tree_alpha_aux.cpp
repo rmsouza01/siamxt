@@ -8,12 +8,12 @@
 #include <vector>
 
 
-using namespace std;
+//using namespace std;
 
 
 // Function for computing all descendants of a node
 void get_descendants_aux_c(int node, int h1, int *children_list, int h2, int *cum_children_hist, int **descendants, int *h3){
-    vector<int> descendants_vector; // vector to store the descendants
+    std::vector<int> descendants_vector; // vector to store the descendants
     int child_of_node,nchild,ndescendants,index;
     descendants_vector.push_back(node);
     ndescendants = 1;
@@ -43,7 +43,7 @@ void get_descendants_aux_c(int node, int h1, int *children_list, int h2, int *cu
 // Function for computing all ancestors of a node
 void get_ancestors_aux_c(int node, int h_par, int  *par , int **ancestors, int *hh){
     int current_node = node;
-    vector<int> ancestors2;
+    std::vector<int> ancestors2;
     ancestors2.push_back (current_node);
     
     while(current_node!= 0){ //Loop until arrive at the root
@@ -71,7 +71,7 @@ void get_children_aux_c(int n, int  *cum_hist, int n2, int  *par , int **childre
 // Simplification," Proceedings of the 22nd International Conference on Pattern Recognition, Stockholm, Sweden, August 2014.
 void get_sub_branches_aux_c(int h_par,int *par, int h_nchild, int *nchild,int h_sb,
                             int *sb,int h_v,int *visited,int **sb_cum_hist,int *nsb){
-    vector<int> sb_cum_hist2;
+    std::vector<int> sb_cum_hist2;
     int par_i,nchild_i;
     int counter = 0;
     int nsb2 = 0;
@@ -180,7 +180,7 @@ void rec_connected_component_2d_c(int node, int seed, int h_ni,int w_ni,
                                   int *NI,int h_cc,int w_cc, unsigned char *cc,
                                   int h_off, int w_off,int *offsets){
     
-    vector<int> seeds_queue;
+    std::vector<int> seeds_queue;
     seeds_queue.push_back (seed);
     int p,n,x_n, y_n;
     cc[seed] = 1;
@@ -210,7 +210,7 @@ void rec_connected_component_3d_c(int node, int seed, int h_ni,int w_ni,int z_ni
                                   int *NI,int h_cc,int w_cc,int z_cc, unsigned char
                                   *cc,int h_off, int w_off,int *offsets){
     
-    vector<int> seeds_queue;
+    std::vector<int> seeds_queue;
     seeds_queue.push_back (seed);
     int p, n, x, y, z, aux, x_n, y_n, z_n;
     int MN = w_ni*z_ni;
