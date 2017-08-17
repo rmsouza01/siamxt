@@ -12,7 +12,7 @@ from morph_tree_alpha_methods import getImage, clone, recConnectedComponent, com
                                      getChildren, getAncestors, \
                                      getDescendants, getSubBranches, prune, contractDR, computeHistogram,\
                                      getBifAncestor, computeNodeGrayAvg, computeNodeGrayVar, \
-                                     computeEccentricity
+                                     computeEccentricity, computeNodeCentroid
     
                                      
 
@@ -52,6 +52,7 @@ class MorphTreeAlpha:
     prune = prune
     contractDR = contractDR
     computeHistogram = computeHistogram
+    computeNodeCentroid = computeNodeCentroid
     
     # New 01/27/2016
     getBifAncestor = getBifAncestor

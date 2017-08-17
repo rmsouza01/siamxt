@@ -352,4 +352,17 @@ def computeEccentricity(self):
     ecc = L1/L2
     return L1,L2,ecc
 
-
+def computeNodeCentroid(self):
+    cent = np.zeros((self.node_array.shape[1],self.node_index.ndim))
+    area = self.node_array[3,:]
+    sumx = self.node_array[5,:]
+    sumy = self.node_array[8,:]
+    
+    
+    cent[:,0] = 1.0*sumx/area
+    cent[:,1] = 1.0*sumy/area
+    
+    if self.node_index.ndim == 3:
+        sumz = self.node_array[11,:]
+        cent[:,2] = 1.0*sumy/area
+    return cent
