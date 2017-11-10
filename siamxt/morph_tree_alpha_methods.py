@@ -364,5 +364,5 @@ def computeNodeCentroid(self):
     
     if self.node_index.ndim == 3:
         sumz = self.node_array[11,:]
-        cent[:,2] = 1.0*sumy/area
+        cent[:,2] = 1.0*sumz/area
     return cent
