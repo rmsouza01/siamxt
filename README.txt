@@ -52,6 +52,8 @@ The documentation of this toolbox is the same of the iamxt (previous distributio
 
 The documentation page won’t load if you have Ad-blockers. Please, disable them!
 
+Some demos can also be found in the jupyter-notebook folder in this repository.
+
 Install
 -------
 Download the zip file, unzip it, go to the toolbox folder and type on terminal:
