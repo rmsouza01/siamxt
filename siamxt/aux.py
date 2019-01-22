@@ -40,7 +40,7 @@ def se2off(Bc):
     element Bc.
     """
     Bc2 = Bc.copy()
-    center = np.array(Bc.shape)/2
+    center = np.array(Bc.shape)//2
     Bc2[tuple(center)] = 0
     off = np.transpose(Bc2.nonzero()) - center
     return np.ascontiguousarray(off, dtype = np.int32)

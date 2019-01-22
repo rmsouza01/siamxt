@@ -7,18 +7,18 @@
 
 # Module max_tree_alpha
 
-from max_tree_alpha_methods import vmax, hmax, computeHeight, computeVolume, computeStabilityMeasure,\
+from .max_tree_alpha_methods import vmax, hmax, computeHeight, computeVolume, computeStabilityMeasure,\
                                    computeExtinctionValues, getSignature, extinctionFilter, mmsT, mmsMSER, areaDifference, progAreaDifference 
                                    
 
-from max_tree_alpha_aux import compute_height_aux_c, compute_volume_aux_c, compute_stability_measure_aux_c, \
+from .max_tree_alpha_aux import compute_height_aux_c, compute_volume_aux_c, compute_stability_measure_aux_c, \
                                compute_extinction_values_aux_c, get_signature_aux_c, extinction_filter_aux_c, \
                                mms_t_aux_c, mms_mser_aux_c, \
 area_difference_aux_c, prog_area_difference_aux_c
 
   
 
-from morph_tree_alpha import MorphTreeAlpha
+from .morph_tree_alpha import MorphTreeAlpha
 
                                      
 class MaxTreeAlpha(MorphTreeAlpha):

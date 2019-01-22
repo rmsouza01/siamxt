@@ -195,9 +195,10 @@ def generateGraph(self, keep = [],nodes_attr = [], LR = False,file_name = "graph
     text_file.close()	
     try:
         os.system("/usr/bin/dot -Tpng %s.dot  > %s.png" %(file_name,file_name))
-	os.remove(file_name + ".dot")
+
+        os.remove(file_name + ".dot")
     except:
-	print "Unable to save graph image. The method will return just the GraphViz code"
+        print("Unable to save graph image. The method will return just the GraphViz code")
         os.remove(file_name + ".dot")
         return dottext
     return

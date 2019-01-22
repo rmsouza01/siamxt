@@ -59,7 +59,7 @@ def computeExtinctionValues(self,attrib_orig, opt = "area"):
                                   (nlevels[composite_nodes] - 1)\
                                   *area[composite_nodes]
     else:
-        print "Invalid Option"
+        print("Invalid Option")
         return
 
     ichmax = np.zeros_like(parent)

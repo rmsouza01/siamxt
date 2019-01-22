@@ -6,8 +6,8 @@
 
 # Module morph_tree_alpha
 
-from build_max_tree import build_max_tree
-from morph_tree_alpha_methods import getImage, clone, recConnectedComponent, compact,\
+from .build_max_tree import build_max_tree
+from .morph_tree_alpha_methods import getImage, clone, recConnectedComponent, compact,\
 				     areaOpen, bbox, computeRR, \
                                      getChildren, getAncestors, \
                                      getDescendants, getSubBranches, prune, contractDR, computeHistogram,\
@@ -16,13 +16,13 @@ from morph_tree_alpha_methods import getImage, clone, recConnectedComponent, com
     
                                      
 
-from morph_tree_alpha_aux import get_children_aux_c, get_ancestors_aux_c, get_descendants_aux_c, \
+from .morph_tree_alpha_aux import get_children_aux_c, get_ancestors_aux_c, get_descendants_aux_c, \
      get_sub_branches_aux_c,prune_aux_c, contract_dr_aux_c, update_nchild_aux_c, remove_node_array_lines_c,\
      rec_connected_component_2d_c, rec_connected_component_3d_c, get_image_aux_2d_c, get_image_aux_3d_c, \
      lut_node_index_3d_c, lut_node_index_2d_c ,get_bif_ancestor_aux_c, compute_node_gray_avg_aux_c, \
      compute_node_gray_var_aux_c, compute_eccentricity_aux_c, compute_hist_aux_c
 
-from aux import se2off
+from .aux import se2off
 
 class MorphTreeAlpha:
     """
@@ -66,9 +66,9 @@ class MorphTreeAlpha:
         if option == 'max_tree':
             _,_,self.node_array,self.node_index, = build_max_tree(img,Bc, option = 1)
         elif option == 'tree_of_shapes':
-            print "Error: Option not implemented yet"
+            print("Error: Option not implemented yet")
         else:
-            print "Error: invalid option"
+            print("Error: invalid option")
             return
         self.Bc = Bc
         self.shape = img.shape

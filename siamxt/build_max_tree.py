@@ -4,9 +4,9 @@
 # Copyright (c) 2016, Roberto Souza and collaborators
 # All rights reserved.
 
-from aux import se2off
+from .aux import se2off
 import numpy as np
-import max_tree_c_01
+from .max_tree_c_01 import counting_sort_c, union_find2d_c, canonicalize_c, computeNodeArray2d_c,computeNodeArray3d_c,union_find3d_c
 
 # Max-tree construction
 def build_max_tree(f, Bc, option = 0):
@@ -27,21 +27,21 @@ def build_max_tree(f, Bc, option = 0):
 
     flat_img = fu16.ravel()
     MAX = flat_img.max()
-    S_rev = max_tree_c_01.counting_sort_c(int(MAX),flat_img) #image sorting
+    S_rev = counting_sort_c(int(MAX),flat_img) #image sorting
 
     #Max-tree construction	
     if ndim == 2:
         H,W = f.shape
-        max_tree_c_01.union_find2d_c(H,W,off,parent,zpar,S_rev,flat_img)
+        union_find2d_c(H,W,off,parent,zpar,S_rev,flat_img)
     elif ndim == 3:
         L,M,N = f.shape
-        max_tree_c_01.union_find3d_c(L,M,N,off,parent,zpar,S_rev,flat_img)
+        union_find3d_c(L,M,N,off,parent,zpar,S_rev,flat_img)
     else:
-        print "Invalid option"
+        print("Invalid option")
         return
 
     # Tree canocalization
-    max_tree_c_01.canonicalize_c(flat_img,parent,S_rev)
+    canonicalize_c(flat_img,parent,S_rev)
 
 	
     if option == 0:
@@ -50,9 +50,9 @@ def build_max_tree(f, Bc, option = 0):
         node_index = np.empty(f.shape, dtype = np.int32)
         node_index[:] = -1
         if ndim == 2: # node array/node index representation
-            node_array = max_tree_c_01.computeNodeArray2d_c(parent,flat_img,S_rev,node_index)
+            node_array = computeNodeArray2d_c(parent,flat_img,S_rev,node_index)
         else:
-            node_array = max_tree_c_01.computeNodeArray3d_c(parent,flat_img,S_rev,node_index)
+            node_array = computeNodeArray3d_c(parent,flat_img,S_rev,node_index)
 
         node_array = node_array.T.copy()
         return parent,S_rev,node_array,node_index

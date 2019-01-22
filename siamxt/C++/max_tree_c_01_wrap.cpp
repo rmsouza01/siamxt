@@ -3120,10 +3120,11 @@ char* pytype_string(PyObject* py_obj) {
   if (PyDict_Check(    py_obj)) return (char*)"dict"        ;
   if (PyList_Check(    py_obj)) return (char*)"list"        ;
   if (PyTuple_Check(   py_obj)) return (char*)"tuple"       ;
-  if (PyFile_Check(    py_obj)) return (char*)"file"        ;
   if (PyModule_Check(  py_obj)) return (char*)"module"      ;
+#if PY_MAJOR_VERSION < 3
+  if (PyFile_Check(    py_obj)) return (char*)"file"        ;
   if (PyInstance_Check(py_obj)) return (char*)"instance"    ;
-
+#endif
   return (char*)"unkown type";
 }
 
