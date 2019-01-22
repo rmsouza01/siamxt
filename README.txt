@@ -1,3 +1,9 @@
+Forked Version
+---------
+
+Includes compatibilities for python 3 in siamxt library.
+
+
 ==================================
 siamxt: Simple Max-tree Toolbox 
 ==================================
@@ -37,7 +43,7 @@ Roberto Lotufo - robertoalotufo@gmail.com
 Requirements
 ------------
 
-This toolbox works with Python 2.x and requires NumPy. I use SWIG to communicate C and Python, but I generate the SWIG wrappers myself, so you don’t need to install SWIG on your computer.
+This toolbox works with Python 3.x and requires NumPy. I use SWIG to communicate C and Python, but I generate the SWIG wrappers myself, so you don’t need to install SWIG on your computer.
 
 Documentation
 -------------
