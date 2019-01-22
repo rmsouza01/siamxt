@@ -1,9 +1,3 @@
-Forked Version
----------
-
-Includes compatibilities for python 3 in siamxt library.
-
-
 ==================================
 siamxt: Simple Max-tree Toolbox 
 ==================================
@@ -39,6 +33,12 @@ Roberto Souza - roberto.medeiros.souza@gmail.com
 Letícia Rittner - lrittner@gmail.com
 Rubens Machado - rubens.campos.machado@gmail.com 
 Roberto Lotufo - robertoalotufo@gmail.com 
+
+
+Acknowledgments
+-----------------
+
+Thanks to Alexandre Lopes (@alelopes) for adapting the code to Python 3.x.
 
 Requirements
 ------------
