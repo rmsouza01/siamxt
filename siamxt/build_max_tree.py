@@ -4,7 +4,7 @@
 # Copyright (c) 2016, Roberto Souza and collaborators
 # All rights reserved.
 
-from .aux import se2off
+from ._aux import se2off
 import numpy as np
 from .max_tree_c_01 import counting_sort_c, union_find2d_c, canonicalize_c, computeNodeArray2d_c,computeNodeArray3d_c,union_find3d_c
 

@@ -8,7 +8,7 @@
 import sys,os
 sys.path.append('~/miniconda3/envs/dl-3/lib/python3.6/site-packages/siamxt/')
 
-from .aux import extrema2attribute,  se2off
+from ._aux import extrema2attribute,  se2off
 from .max_tree_alpha import MaxTreeAlpha
 from .morph_tree_alpha import MorphTreeAlpha
 

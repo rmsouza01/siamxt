@@ -60,7 +60,9 @@ sudo python setup.py install
 
 Note for Windows users
 ——————————————————————
-I didn’t test this toolbox on windows platform. If you are a Windows user, a friend has developed a docker image with the toolbox. You can download it from the following repo: https://hub.docker.com/r/marianapbento/siamxt-1.0/
+I didn’t test this toolbox on windows platform, but I added the suggestion given by @u0078867 that should make it work.
+
+Another option if you are a Windows user: a friend has developed a docker image with the toolbox. You can download it from the following repo: https://hub.docker.com/r/marianapbento/siamxt-1.0/
 
 You can install Docker and download the image to use siamxt on your windows machine!
 

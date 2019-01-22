@@ -22,7 +22,7 @@ from .morph_tree_alpha_aux import get_children_aux_c, get_ancestors_aux_c, get_d
      lut_node_index_3d_c, lut_node_index_2d_c ,get_bif_ancestor_aux_c, compute_node_gray_avg_aux_c, \
      compute_node_gray_var_aux_c, compute_eccentricity_aux_c, compute_hist_aux_c
 
-from .aux import se2off
+from ._aux import se2off
 
 class MorphTreeAlpha:
     """
