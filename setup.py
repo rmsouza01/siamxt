@@ -46,6 +46,7 @@ _max_tree_c_01 = Extension(
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
+	    extra_compile_args=['-std=c++11']
             #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
@@ -56,6 +57,7 @@ _morph_tree_alpha_aux_c = Extension(
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
+	    extra_compile_args=['-std=c++11']
             #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
@@ -68,6 +70,7 @@ _max_tree_alpha_aux_c = Extension(
             include_dirs=[numpy_include],
             library_dirs=[],
             libraries=[],
+	    extra_compile_args=['-std=c++11']
             #swig_opts=['-c++', '-includeall', '-threads', '-keyword'],
         )
 
