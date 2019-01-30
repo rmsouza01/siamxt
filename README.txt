@@ -57,7 +57,7 @@ Some demos can also be found in the jupyter-notebook folder in this repository.
 Install
 -------
 Download the zip file, unzip it, go to the toolbox folder and type on terminal:
-sudo python setup.py install
+sudo python setup.py install (if installing in a root folder) or simply python setup.py install (if installing in a non-root folder, such as a virtual environment).
 
 
 Note for Windows users
