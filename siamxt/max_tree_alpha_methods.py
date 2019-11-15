@@ -149,9 +149,9 @@ def vmax(self, vol,V = None):
 
     total_volume = child_volume + (level - level[parent])*area
     self.prune(total_volume < vol)
-    area = area[total_volume > vol]
-    child_volume = child_volume[total_volume > vol]
-    self.node_array[2,child_volume < vol] -= (vol - child_volume[child_volume < vol]) / area[child_volume < vol]
+    area = area[total_volume >= vol]
+    child_volume = child_volume[total_volume >= vol]
+    self.node_array[2,child_volume < vol] -= (vol - child_volume[child_volume < vol]) // area[child_volume < vol]
     return self
 
 
