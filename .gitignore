@@ -1,9 +1,6 @@
 *~
 *.pyc
 build
-max_tree_c_01.py
-max_tree_alpha_aux.py
-morph_tree_alpha_aux.py
 *.DS_Store
 SWIG/*
 SWIG
